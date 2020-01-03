@@ -4,7 +4,8 @@ import Vue from 'vue'
 
 import router from './router'
 import Axios from 'axios'
-
+import marked from 'marked'
+import lodash from 'lodash'
 import './assets/less/style.less'
 import './assets/css/blog-ui-common.css'
 
@@ -28,7 +29,6 @@ import Edit from "./components/Edit/Edit";
 
 Vue.prototype.$https=Axios
 Vue.config.productionTip = false
-
 Vue.component(Input.name,Input)
 
 
