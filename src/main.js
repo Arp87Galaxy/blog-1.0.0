@@ -1,0 +1,56 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+
+import router from './router'
+import Axios from 'axios'
+
+import './assets/less/style.less'
+import './assets/css/blog-ui-common.css'
+
+
+import Input from "./components/commons/Input";
+
+
+
+import App from './App'
+import MenuComponent from "./components/Menu/MenuComponent"
+import Header from "./components/Header/Header";
+import Hgroup from "./components/Header/Hgroup";
+import Nav from "./components/Header/Nav";
+import Footer from "./components/Footer/Footer";
+import Main from "./components/Main/Main";
+import Section from "./components/Main/Section";
+import Aside from "./components/Main/Aside";
+import Article from "./components/Main/Article";
+import Edit from "./components/Edit/Edit";
+
+
+Vue.prototype.$https=Axios
+Vue.config.productionTip = false
+
+Vue.component(Input.name,Input)
+
+
+
+
+Vue.component(MenuComponent.name,MenuComponent)
+Vue.component(Header.name,Header)
+Vue.component(Hgroup.name,Hgroup)
+Vue.component(Nav.name,Nav)
+Vue.component(Footer.name,Footer)
+Vue.component(Main.name,Main)
+Vue.component(Aside.name,Aside)
+Vue.component(Section.name,Section)
+Vue.component(Article.name,Article)
+Vue.component(Edit.name,Edit)
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#page',
+  router,
+  components: { App },
+  template: `
+                    <router-view></router-view>    
+    `
+})
