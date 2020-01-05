@@ -4,17 +4,9 @@
       <Hgroup></Hgroup>
       <Nav></Nav>
     </Header>
-    <Main></Main>
-<!--    <router-link target="_blank" to="/nav">ssssss</router-link>-->
-    <Input placeholder="place" />
+    <router-view></router-view>
+    <!--    <router-link target="_blank" to="/nav">ssssss</router-link>-->
     <Footer></Footer>
-
-
-
-
-
-
-
   </div>
 </template>
 

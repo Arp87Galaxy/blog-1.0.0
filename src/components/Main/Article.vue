@@ -4,15 +4,15 @@
       <header >
         <a class="" href="" >[{{ article.articleCategory }}]</a>
         <h3 >
-          <a target="_blank" href="" title="【技术开发】谷歌验证码 ReCaptcha 破解教程，简单方便从零开始。">
+          <a @click="toArticle($event)" :title="article.articleTitle">
             {{ article.articleTitle }}
           </a>
         </h3>
       </header>
       <div class="focus">
-        <a target="_blank" href="">
-          <img src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/12/timg-5.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1" alt="【技术开发】谷歌验证码 ReCaptcha 破解教程，简单方便从零开始。">
-        </a>
+<!--        <a target="_blank" href="">-->
+<!--          <img src="https://cuiqingcai.com/wp-content/themes/Yusi/timthumb.php?src=https://qiniu.cuiqingcai.com/wp-content/uploads/2019/12/timg-5.jpeg&amp;h=123&amp;w=200&amp;q=90&amp;zc=1&amp;ct=1" alt="【技术开发】谷歌验证码 ReCaptcha 破解教程，简单方便从零开始。">-->
+<!--        </a>-->
         <span class="note">
           {{ article.articleOverview }}
         </span>
@@ -50,11 +50,14 @@
           }
       },
       methods:{
+          toArticle(e){
+              this.$router.push({name:'DetailArticle',params: { userId: e.target }})
+            // console.log(this.$router);
+            //   console.log(this.$route);
+          },
           getArticles(){
               this.$https.get('http://192.168.5.111:8888/v1/articles/').then((articlelist)=>{
-                  console.log(articlelist.data)
                   this.articlelist=articlelist.data;
-                  console.log(this.articlelist)
               }).catch((err)=>{
 
               })
@@ -97,7 +100,7 @@
   .note{
     position: relative;
     display: inline-block !important;
-    float: right;
+    /*float: right;*/
     padding: 10px;
     width: 60%;
     /*top: 0;*/
@@ -127,7 +130,7 @@ header > a{
   .auth-span{
     display:inline-block;
     position: relative;
-    bottom: 10px;
+    /*bottom: 10px;*/top: 50px;
     width: 100%;
   }
   .auth-span p{

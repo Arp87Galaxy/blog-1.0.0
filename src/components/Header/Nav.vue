@@ -3,13 +3,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="a-nav">
       <ul class="a-nav-ul">
-        <li v-for="(menu,index) in menuList" ><a  :class="{active:index==active_index}" @click="setActive($event,index)"  href="#">{{ menu.name }}</a></li>
+        <li v-for="(menu,index) in menuList" ><a  :class="{active:index==active_index}" :name="menu.routename" @click="setActive($event,index)" >{{ menu.name }}</a></li>
       </ul>
       <form class="navbar-form navbar-left pull-right">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="">Submit</button>
       </form>
       <div class="container-fluid">
 
@@ -18,11 +18,13 @@
   </nav><!-- /.container-fluid -->
 </template>
 <script>
+  import Edit from "../Edit/Edit";
+
   export default {
       name:'Nav',
       data(){
           return{
-              menuList:[{name:'首页'},{name:'服务器'},{name:'Linux'},{name:'数据库'},{name:'支持'}],
+              menuList:[{name:'首页',routename:'/'},{name:'服务器'},{name:'Linux'},{name:'数据库'},{name:'支持'},{name:'编辑器',routename:'Edit'}],
               active_index:0,
           }
       },
@@ -32,7 +34,9 @@
           },
           setActive(e,index){
               this.active_index=index
-             console.log(e.target)
+              // console.log(e.target.name)
+              this.$router.push({name:''+e.target.name})
+
           }
       }
   }

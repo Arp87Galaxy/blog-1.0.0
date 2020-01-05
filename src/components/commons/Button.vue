@@ -1,5 +1,7 @@
 <template>
-  <input type="text" vule="132" :placeholder="{placeholder}">
+ <button class="btn-default">
+   <slot></slot>
+ </button>
 </template>
 
 <script>
@@ -20,5 +22,14 @@
 </script>
 
 <style>
-
+  .btn-default{
+    display: block;
+    position: relative;
+    border-radius: 0;
+    border: 0px;
+    padding: 0;
+    background-color: #F5DEB3;
+    width: 50px;
+    height:30px;
+  }
 </style>

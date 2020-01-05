@@ -11,6 +11,7 @@ import './assets/css/blog-ui-common.css'
 
 
 import Input from "./components/commons/Input";
+import Button from "./components/commons/Button";
 
 
 
@@ -25,11 +26,15 @@ import Section from "./components/Main/Section";
 import Aside from "./components/Main/Aside";
 import Article from "./components/Main/Article";
 import Edit from "./components/Edit/Edit";
+import DetailArticle from "./components/DetailArticle/DetailArticle";
 
+// Axios.defaults.baseURL='http://192.168.5.111:8888/'
 
 Vue.prototype.$https=Axios
 Vue.config.productionTip = false
 Vue.component(Input.name,Input)
+Vue.component(Button.name,Button)
+
 
 
 
@@ -44,6 +49,7 @@ Vue.component(Aside.name,Aside)
 Vue.component(Section.name,Section)
 Vue.component(Article.name,Article)
 Vue.component(Edit.name,Edit)
+Vue.component(DetailArticle.name,DetailArticle)
 
 /* eslint-disable no-new */
 new Vue({
@@ -51,6 +57,6 @@ new Vue({
   router,
   components: { App },
   template: `
-                    <router-view></router-view>    
+                   <App/>  
     `
 })
